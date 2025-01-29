@@ -1,0 +1,22 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="sample_report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="96463abb-297a-4710-8d46-535179202695">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <query language="sql"><![CDATA[]]></query>
+    <background splitType="Stretch"/>
+    <title height="79" splitType="Stretch">
+        <element kind="textField" uuid="b7c76cc3-7b0d-4f21-bf7e-3bb192205960" x="230" y="24" width="100" height="30">
+            <expression><![CDATA["Test Report"]]></expression>
+        </element>
+    </title>
+    <columnHeader height="61" splitType="Stretch"/>
+    <detail>
+        <band height="125" splitType="Stretch">
+            <element kind="textField" uuid="55c37792-5a67-4237-aedb-b605319a669f" x="230" y="60" width="100" height="30">
+                <expression><![CDATA["Hello, JasperReports"]]></expression>
+            </element>
+        </band>
+    </detail>
+    <columnFooter height="45" splitType="Stretch"/>
+    <pageFooter height="54" splitType="Stretch"/>
+    <summary height="42" splitType="Stretch"/>
+</jasperReport>
