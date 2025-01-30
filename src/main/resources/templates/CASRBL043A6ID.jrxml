@@ -1,0 +1,178 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="CASRBL043A6ID" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f544d656-b301-470e-a739-54174b98a43f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<dataset name="Dataset" uuid="c5158915-c8c5-4915-b263-31a2b15333e6">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<parameter name="POLIS_DATASET" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+		<query language="sql"><![CDATA[]]></query>
+		<field name="NO_POLIS" class="java.lang.String"/>
+		<field name="PAYMENT_DATE" class="java.lang.String"/>
+		<field name="CURRENCY" class="java.lang.String"/>
+		<field name="PREMIUM_AMOUNT" class="java.lang.String"/>
+		<field name="PAYMENT_METHOD" class="java.lang.String"/>
+	</dataset>
+	<parameter name="POLIS_DATASET" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="NO_LETTER" class="java.lang.String"/>
+	<parameter name="LETTER_DATE" class="java.lang.String"/>
+	<parameter name="TRANSACTION_TYPE" class="java.lang.String"/>
+	<parameter name="TRANSACTION_AMOUNT" class="java.lang.String"/>
+	<parameter name="PAYMENT_TYPE" class="java.lang.String"/>
+	<parameter name="BOX_TEXT" class="java.lang.String"/>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="675b59a2-a4cf-41a9-81b7-bbd204a670a3" x="0" y="0" width="555" height="79" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[PENERIMAAN PREMI PERTAMA]]></text>
+		</element>
+		<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+	</title>
+	<pageHeader height="13" splitType="Stretch"/>
+	<columnHeader height="13" splitType="Stretch"/>
+	<detail>
+		<band height="472" splitType="Stretch">
+			<element kind="component" uuid="b4741d84-6fc7-46ff-95e8-165787249d1e" mode="Transparent" x="0" y="0" width="555" height="60">
+				<component kind="table">
+					<datasetRun uuid="69776b05-b619-48fc-a312-41d442cf48ae" subDataset="Dataset">
+						<dataSourceExpression><![CDATA[$P{POLIS_DATASET}]]></dataSourceExpression>
+					</datasetRun>
+					<column kind="single" uuid="c155acbb-a11a-4e02-b365-366d00ee7d1d" width="100">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="4320fe5e-748d-4a1b-91da-3b4ef9a251ca" x="0" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<text><![CDATA[No Polis]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="9e445ea2-2762-48f8-83e7-3e4fca3b7e05" x="0" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{NO_POLIS}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+					</column>
+					<column kind="single" uuid="9a79ffd3-a97d-4f4c-9ed2-d657a5bff171" width="110">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="1207774f-ab68-4ad6-aa58-e3544ccac637" x="0" y="0" width="110" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<text><![CDATA[Tanggal Pembayaran]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="ac582443-0611-419e-ae6d-7247edbf1d56" x="0" y="0" width="110" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{PAYMENT_DATE}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+					</column>
+					<column kind="single" uuid="74420835-4893-4b88-85c8-f0375e203193" width="110">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="a479c689-af6f-40df-8337-dd6b0bf4ce2d" x="0" y="0" width="110" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<text><![CDATA[Mata Uang]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="5d449ae1-18d3-4471-9b27-73119395db10" x="0" y="0" width="110" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{CURRENCY}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+					</column>
+					<column kind="single" uuid="7290f057-c276-44c5-922e-e4c3c7533dcd" width="100">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="d6369010-6f6a-4cde-b763-f0392afd5004" x="0" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<text><![CDATA[Jumlah Premi]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="2492bfd3-f1eb-4ad6-857b-581f689882a4" x="0" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{PREMIUM_AMOUNT}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+					</column>
+					<column kind="single" uuid="d40c0c72-9542-4087-8da8-686518822ea3" width="135">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="89515f51-f65a-41d8-b556-e2d628816c08" x="0" y="0" width="135" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<text><![CDATA[Cara Pembayaran]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="2676748d-0590-4fdb-9555-709157b00f6a" x="0" y="0" width="135" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{PAYMENT_METHOD}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+					</column>
+				</component>
+				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+				<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+				<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+			</element>
+			<element kind="rectangle" uuid="95d655df-de9b-4b01-84c2-669ea1f6e281" x="0" y="70" width="240" height="100"/>
+			<element kind="textField" uuid="0899fb51-5af5-4a50-98e1-eaa49b9fee80" x="0" y="69" width="240" height="100" textAdjust="ScaleFont" hTextAlign="Left" vTextAlign="Middle">
+				<expression><![CDATA[$P{BOX_TEXT}]]></expression>
+			</element>
+			<element kind="textField" uuid="2775a192-e69d-485b-adfe-3803afd57a19" x="291" y="79" width="254" height="30">
+				<expression><![CDATA["NOMOR		:"+ $P{NO_LETTER}]]></expression>
+			</element>
+			<element kind="textField" uuid="9897d313-f7be-4506-bc2e-e25ba7f5a10d" x="290" y="111" width="254" height="30">
+				<expression><![CDATA["Tgl. Pemberitahuan	:"+ $P{LETTER_DATE}]]></expression>
+			</element>
+			<element kind="textField" uuid="df3e220f-7db1-453c-8c9d-20c53e64d91b" x="0" y="179" width="320" height="20">
+				<expression><![CDATA["Jenis Transaksi			:"+  $P{TRANSACTION_TYPE}]]></expression>
+			</element>
+			<element kind="textField" uuid="63652bff-40d6-4f50-8894-fb0505f542fe" x="0" y="199" width="320" height="20">
+				<expression><![CDATA["Jumlah Penerimaan		:"+  $P{TRANSACTION_AMOUNT}]]></expression>
+			</element>
+			<element kind="textField" uuid="33d592cd-11f0-4f44-9578-a2fed002927c" x="0" y="222" width="320" height="20">
+				<expression><![CDATA["Diterima Melalui		:"+  $P{PAYMENT_TYPE}]]></expression>
+			</element>
+			<element kind="staticText" uuid="3b88b27b-f0b4-480a-b46a-094a19f480f3" x="0" y="264" width="555" height="40" fontSize="9.0" bold="false">
+				<text><![CDATA[Apabila memerlukan informasi lebih lanjut, silahkan menghubungi Agen Asuransi Bapak/Ibu
+Atau hubungi : Manulife Customer Contact Center Telp : 021-25557777 (untuk wilayah dengan kode area Jakarta)
+Toolfree : 0 800 1 606060 (khusus untuk wilayah diluar kode area Jakarta) Email : CustomerServiceID@Manulife.com]]></text>
+			</element>
+			<element kind="staticText" uuid="3efcff14-a056-44ac-a137-21f623dcc97b" x="0" y="244" width="555" height="20" bold="true">
+				<text><![CDATA[CATATAN PENTING :]]></text>
+			</element>
+			<element kind="staticText" uuid="0af1f647-1546-49eb-968b-a618789120cb" x="0" y="303" width="555" height="51" fontSize="8.0" italic="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[Pemberitahuan ini dicetak secara elektronik sehingga tidak diperlukan tanda tangan dari pihak PT Asuransi Jiwa Manulife Indonesia]]></text>
+			</element>
+			<element kind="rectangle" uuid="3992c3da-5229-412f-a4d5-0f4cb2d807a0" x="0" y="357" width="555" height="83"/>
+			<element kind="staticText" uuid="f0336f70-31e2-401c-a4c2-3e9198d17cd8" x="0" y="357" width="555" height="83" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[Demi kelancaran pelayanan yang kami berikan untuk kenyamanan Anda, pastikan alamat penagihan polis Anda yang tercatat pada kami
+sudah lengkap dan benar
+jika ada perubahan alamat, mohon lengkapi Formulir Perubahan Alamat dan kirimkan kepada kami]]></text>
+			</element>
+			<element kind="staticText" uuid="d0bc38c2-6e5a-4cae-82d9-e42d98288863" x="300" y="447" width="255" height="17" hTextAlign="Right">
+				<text><![CDATA[/ J. PUSAT LESTARI / AGTNM - 3B1028]]></text>
+			</element>
+		</band>
+	</detail>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

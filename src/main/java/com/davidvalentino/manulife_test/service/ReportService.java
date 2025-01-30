@@ -17,13 +17,16 @@ public class ReportService {
     private static final String SAMPLE_TEMPLATE_PATH = "/templates/sample_report.jrxml";
     private static final String CASRNBID0131_TEMPLATE_PATH = "/templates/CASRNBID0131.jrxml";
     private static final String CASRNBID0131_SECOND_PAGE_TEMPLATE_PATH = "/templates/CASRNBID0131_page2.jrxml";
+    private static final String CASRBL043A6ID_TEMPLATE_PATH = "/templates/CASRBL043A6ID.jrxml";
     private static final String OUTPUT_DIR = "output";
     private static final String SAMPLE_OUTPUT_FILE = "sample_report.pdf";
     private static final String CASRNBID0131_OUTPUT_FILE = "CASRNBID0131.pdf";
+    private static final String CASRBL043A6ID_OUTPUT_FILE = "CASRBL043A6ID.pdf";
 
     public void generateReport() {
         generateSampleReport();
         generateCASRNBID0131Report();
+        generateCASRBID043A6IDReport();
     }
 
     private void generateSampleReport() {
@@ -98,6 +101,51 @@ public class ReportService {
         }
     }
 
+    public void generateCASRBID043A6IDReport() {
+        try {
+            System.out.println("Starting generating CASRBL043A6ID report...");
+            InputStream jrxmlStream = getClass().getResourceAsStream(CASRBL043A6ID_TEMPLATE_PATH);
+
+            if (jrxmlStream == null) {
+                throw new JRException("Jasper file not found: " + CASRBL043A6ID_TEMPLATE_PATH + ". Stop generating CASRBL043A6ID report.");
+            } else {
+                System.out.println("Jasper file found! Continue generating CASRBL043A6ID report...");
+            }
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlStream);
+
+            List<Map<String, Object>> dataList = createCASRBID043A6IDData();
+
+            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(dataList);
+            
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("POLIS_DATASET", dataSource);
+            parameters.put("NO_LETTER", "B5130766884716 / 4897");
+            parameters.put("LETTER_DATE", "30 January 2025");
+            parameters.put("TRANSACTION_TYPE", "Pembayaran Premi");
+            parameters.put("TRANSACTION_AMOUNT", "Rp 1.000.000,00");
+            parameters.put("PAYMENT_TYPE", "Payment Gateway");
+            parameters.put("BOX_TEXT", """
+                    CLI_NM - 4207083737 \n
+                    ADDR_1 - 4207083737 \n
+                    ADDR_2 - 4207083737 \n
+                    ADDR_3 - 4207083737 \n
+                    ADDR_4 - 4207083737 \n
+                    12310 \n
+                    2017180627/BL043A6/20240322 \n
+            """);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+
+            saveReportToFile(jasperPrint, CASRBL043A6ID_OUTPUT_FILE);
+
+            System.out.println("CASRBL043A6ID report generation complete.");
+        } catch (JRException e) {
+            System.err.println("Error generating CASRBL043A6ID report: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     private List<Map<String, Object>> createStaticData() {
         return Arrays.asList(
                 createData("Andi", "Senior UW", "*-ALl", "GRP001", "Active", 1000000.0, 500000.0, 750000.0, 300000.0),
@@ -115,6 +163,13 @@ public class ReportService {
                 createDataSecondPage("Hadi", "Senior UW", "*-ALl", "GRP003", "Inactive", 550, 300, 450, 125, 250, 333, 299.99),
                 createDataSecondPage("Ivan", "LV2", "M", "GRP004", "Active", 650, 400, 550, 150, 300, 444, 399.99),
                 createDataSecondPage("Joni", "LV1", "NM", "GRP004", "Active", 750, 500, 650, 175, 350, 555, 499.99)
+        );
+    }
+
+    private List<Map<String, Object>> createCASRBID043A6IDData() {
+        return Arrays.asList(
+            createDataCASRBID043A6ID("20012221829", "30 January 2025", "RUPIAH", "Rp 1.000.000,00", "TAHUNAN"),
+            createDataCASRBID043A6ID("20012221829", "30 January 2025", "RUPIAH", "Rp 1.000.000,00", "TAHUNAN")
         );
     }
 
@@ -148,6 +203,16 @@ public class ReportService {
         row.put("faceRatingWPPB", faceRatingWPPB);
         row.put("faceRatingHospital", faceRatingHospital);
         row.put("extraRateBase", extraRateBase);
+        return row;
+    }
+
+    private Map<String, Object> createDataCASRBID043A6ID(String noPolis, String paymentDate, String currency, String premiumAmount, String paymentMethod) {
+        Map<String, Object> row = new HashMap<>();
+        row.put("NO_POLIS", noPolis);
+        row.put("PAYMENT_DATE", paymentDate);
+        row.put("CURRENCY", currency);
+        row.put("PREMIUM_AMOUNT", premiumAmount);
+        row.put("PAYMENT_METHOD", paymentMethod);
         return row;
     }
 
